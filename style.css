@@ -1,0 +1,372 @@
+/* Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background-color: #000000;
+    color: white;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2em;
+}
+
+header p {
+    margin: 5px 0 0;
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    height: calc(100vh - 136px);
+}
+
+/* Map Styles */
+#map {
+    flex: 1;
+    height: 100%;
+}
+
+/* Sidebar Styles */
+#sidebar {
+    width: 350px;
+    background-color: #f8f9fa;
+    overflow-y: auto;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    padding: 15px;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar-header h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.3em;
+    color: #333;
+}
+
+.filter-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.filter-controls button {
+    flex: 1;
+    padding: 8px;
+    background-color: #457b9d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.filter-controls button:hover {
+    background-color: #1d3557;
+}
+
+/* Filters Container */
+#filters-container {
+    padding: 15px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.filter-group {
+    margin-bottom: 15px;
+}
+
+.filter-group h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.1em;
+    color: #1d3557;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.filter-item {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.filter-item input {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.filter-item label {
+    cursor: pointer;
+    font-size: 0.95em;
+    flex-grow: 1;
+}
+
+/* Restaurant Details */
+#restaurant-details {
+    padding: 0;
+    background-color: white;
+    border-top: 1px solid #ddd;
+    display: none;
+}
+
+#restaurant-details.visible {
+    display: block;
+}
+
+#details-content {
+    padding: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#close-details {
+    width: 100%;
+    padding: 12px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#close-details:hover {
+    background-color: #c1121f;
+}
+
+/* Rating Styles */
+.rating-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.rating {
+    font-weight: bold;
+    color: #333;
+}
+
+.stars {
+    color: #ffc107;
+    letter-spacing: 2px;
+}
+
+.review-count {
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Summary Section */
+.summary {
+    background-color: #f8f9fa;
+    padding: 12px;
+    border-radius: 5px;
+    margin: 15px 0;
+    border-left: 3px solid #457b9d;
+}
+
+/* Reviews Section */
+.reviews-section {
+    margin-top: 20px;
+}
+
+.reviews-section h4 {
+    margin-bottom: 10px;
+    color: #1d3557;
+}
+
+.review {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.review:last-child {
+    border-bottom: none;
+}
+
+.review-rating {
+    color: #ffc107;
+    margin-bottom: 5px;
+}
+
+.review-text {
+    line-height: 1.5;
+    margin: 5px 0;
+    font-size: 0.95em;
+}
+
+.review-date {
+    color: #777;
+    font-size: 0.8em;
+    text-align: right;
+}
+  
+
+/* Popup Styles */
+.mapboxgl-popup-content {
+    padding: 15px;
+    min-width: 250px;
+    border-radius: 8px;
+}
+
+.mapboxgl-popup-content h3 {
+    margin-top: 0;
+    color: #e63946;
+    font-size: 1.2em;
+}
+
+.mapboxgl-popup-content p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+.mapboxgl-popup-content button.more-info {
+    background-color: #457b9d;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+.mapboxgl-popup-content button.more-info:hover {
+    background-color: #000000;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 0.85em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    #sidebar {
+        width: 100%;
+        max-height: 40vh;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    #map {
+        height: 60vh;
+    }
+    
+    .header-content {
+        padding: 0 15px;
+    }
+    
+    header h1 {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-controls {
+        flex-direction: column;
+    }
+    
+    .filter-controls button {
+        width: 100%;
+    }
+}
+
+/* Legend Styles */
+#legend {
+    padding: 15px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#legend h3 {
+    margin-top: 0;
+    color: #1d3557;
+    font-size: 1.1em;
+}
+
+#legend-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.legend-emoji {
+    margin-right: 5px;
+    font-size: 1.2em;
+}
+
+.filter-item label {
+    color: black !important; /* Force black text for filter items */
+}
+
+/* Marker Styles */
+.marker {
+    transition: transform 0.2s;
+    will-change: transform;
+    pointer-events: auto;
+}
+
+.mapboxgl-marker {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+/* Improve emoji visibility on map */
+.marker div {
+    text-shadow: 
+        0 0 3px white,
+        0 0 5px rgba(255,255,255,0.5);
+}
+
+/* Update the sidebar header color to match black text */
+.sidebar-header h2 {
+    color: black !important;
+}
