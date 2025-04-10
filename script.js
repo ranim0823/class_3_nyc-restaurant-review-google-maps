@@ -332,7 +332,7 @@ function getMarkerSize(currentZoom) {
 // Load restaurant data
 async function loadRestaurantData() {
     try {
-        const response = await fetch('restaurants.json');
+        const response = await fetch('restaurants_wo_reviews.json');
         if (!response.ok) throw new Error('Failed to load data');
         const rawData = await response.json();
         return processRestaurantData(rawData);
