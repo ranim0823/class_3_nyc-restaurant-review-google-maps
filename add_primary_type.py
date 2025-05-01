@@ -79,9 +79,10 @@ PRIMARY_TYPE_NORMALIZATION = {
     "dumplings_restaurant" : "dumpling_restaurant",
     "tacos_restaurant" : "taco_restaurant",
     "philippine_restaurant" : "filipino_restaurant",
-    "soul food_restaurant" : "comfort food_restaurant",
+    "soul food_restaurant" : "comfort_food_restaurant",
     "dessert_restaurant" : "dessert_shop",
-    "hotpot_restaurant" : "hot pot_restaurant",
+    "hotpot_restaurant" : "hot_pot_restaurant",
+    "hot pot_restaurant" : "hot_pot_restaurant"
 }
 
 # Identify keywords in text
@@ -161,6 +162,10 @@ def process_restaurants(data):
     
     return updated_restaurants
 
+# Get the count of total unique restaurants
+def count_unique_restaurants(data):
+    unique_ids = {restaurant["google_place_id"] for restaurant in data if "google_place_id" in restaurant}
+    return len(unique_ids)
 
 # Get a ranked list of all unique "primary_type"
 def rank_primary_types(data):
@@ -234,6 +239,29 @@ def main():
     # Save the updated dataset
     save_data(updated_data, output_file)
     print(f"Updated data saved to {output_file}")
+
+    # Count total unique restaurants
+    unique_restaurant_count = count_unique_restaurants(updated_data)
+    print(f"Total Unique Restaurants: {unique_restaurant_count}")
+
+    # Count unique primary types
+    unique_primary_types = {restaurant["primary_type"] for restaurant in updated_data if "primary_type" in restaurant}
+    print(f"Total Unique Primary Types: {len(unique_primary_types)}")
+
+    # Count unique types
+    unique_types = set()
+    for restaurant in updated_data:
+        if "types" in restaurant:
+            if isinstance(restaurant["types"], list):
+                unique_types.update(restaurant["types"])
+            elif isinstance(restaurant["types"], str):
+                try:
+                    parsed_types = json.loads(restaurant["types"].replace("'", '"'))
+                    if isinstance(parsed_types, list):
+                        unique_types.update(parsed_types)
+                except json.JSONDecodeError:
+                    pass
+    print(f"Total Unique Types: {len(unique_types)}")
 
     # Rank primary types
     primary_type_ranking = rank_primary_types(updated_data)
